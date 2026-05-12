@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.3",
         "ext-gd": "*",
+        "ext-zip": "*",
         "barryvdh/laravel-dompdf": "*",
         "cuyz/valinor": "^2.4",
         "kreait/firebase-php": "8.0",
