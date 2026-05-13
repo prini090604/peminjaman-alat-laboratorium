@@ -91,7 +91,7 @@
                                         <td>{{ ucwords($detail->status_alat) }}</td>
                                         <td>
                                             <div class="qr-box">
-                                                <img class="qr-img" src="{{ asset($detail->qr_code) }}">
+                                                <img class="qr-img" src="{{ asset('storage/' . $detail->qr_code) }}">
                                                 <div class="garis"></div>
                                                 <div class="kode-wrapper">
                                                     <img class="logo-kecil"

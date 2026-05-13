@@ -66,7 +66,8 @@ class TipeAlatController extends Controller
             return redirect()->route('tipe.index')->with('store_success', ucwords(strtolower($tipe->nama_tipe)));
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect()->back()->with('error', 'Data tipe gagal ditambahkan');
+            dd($e->getMessage());
+            // return redirect()->back()->with('error', 'Data tipe gagal ditambahkan');
         }
     }
 
