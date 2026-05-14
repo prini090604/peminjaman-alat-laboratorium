@@ -29,6 +29,11 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN composer install --no-dev --optimize-autoloader
 
+RUN php artisan config:clear
+RUN php artisan cache:clear
+RUN php artisan route:clear
+RUN php artisan view:clear
+
 # Laravel setup
 RUN php artisan storage:link || true
 RUN chmod -R 775 storage bootstrap/cache
@@ -39,7 +44,9 @@ RUN mkdir -p /etc/supervisor/conf.d
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Run supervisor (web + scheduler)
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
+
 
 # FROM php:8.3-fpm
 
