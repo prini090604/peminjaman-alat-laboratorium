@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schedule;
 
 Schedule::command('peminjaman:update-status')
-    ->everyMinute();
+    ->everyFiveMinute();
 Schedule::command('peminjaman:reminder')
-    ->everyMinute();
+    ->everyFiveMinute();
     
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
